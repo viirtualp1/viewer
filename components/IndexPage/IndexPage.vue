@@ -22,6 +22,13 @@ import StreamerMain from "@/components/Streamer/StreamerMain/StreamerMain.vue";
 import StreamerTasks from "@/components/Streamer/StreamerTasks/StreamerTasks.vue";
 import StreamerStats from "@/components/Streamer/StreamerStats/StreamerStats.vue";
 import StreamerActions from "@/components/Streamer/StreamerActions/StreamerActions.vue";
+import { useGameStats } from "@/composables/useGameStats";
+import { useTasks } from "@/composables/useTasks";
+
+onMounted(() => {
+  useGameStats();
+  useTasks();
+});
 </script>
 
 <style src="./IndexPage.scss" lang="scss"></style>

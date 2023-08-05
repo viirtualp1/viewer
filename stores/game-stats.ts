@@ -1,9 +1,10 @@
-import { defineStore } from "pinia";
+import { defineStore, storeToRefs } from "pinia";
 import { DateType } from "@/types/Date";
+import { GameStats } from "@/types/Game";
 
 export const useGameStatsStore = defineStore({
   id: "game-stats-store",
-  state: () => {
+  state: (): GameStats => {
     return {
       day: 1,
       date: {
@@ -19,9 +20,21 @@ export const useGameStatsStore = defineStore({
     setDate(value: DateType) {
       this.date = value;
     },
+    setStats(value: GameStats) {
+      this.day = value.day;
+      this.date = value.date;
+    },
   },
   getters: {
     getDay: (state) => state.day,
     getDate: (state) => state.date,
+    getStats: (state) => {
+      return {
+        day: state.day,
+        date: state.date,
+      };
+    },
   },
 });
+
+export const useGameStatsStoreRefs = () => storeToRefs(useGameStatsStore());

@@ -11,13 +11,15 @@
       {{ formattedDate }}
     </streamer-card-title>
 
-    <streamer-card-text> {{ task.description }} </streamer-card-text>
+    <streamer-card-text v-if="task">
+      {{ task.description }}
+    </streamer-card-text>
   </streamer-card>
 </template>
 
 <script setup lang="ts">
-import { useGameStatsStore } from "@/stores/game-stats";
-import { useTasksStore } from "@/stores/tasks";
+import { useGameStatsStoreRefs } from "@/stores/game-stats";
+import { useTasksStoreRefs } from "@/stores/tasks";
 
 import { formatDate } from "@/utils/Date";
 
@@ -25,10 +27,10 @@ import StreamerCard from "@/components/Streamer/StreamerCard/StreamerCard.vue";
 import StreamerCardTitle from "@/components/Streamer/StreamerCard/StreamerCardTitle/StreamerCardTitle.vue";
 import StreamerCardText from "@/components/Streamer/StreamerCard/StreamerCardText/StreamerCardText.vue";
 
-const { day, date } = useGameStatsStore();
-const { task } = useTasksStore();
+const { day, date } = useGameStatsStoreRefs();
+const { task } = useTasksStoreRefs();
 
-const formattedDate = computed(() => formatDate(date));
+const formattedDate = computed(() => formatDate(date.value));
 </script>
 
 <style src="./StreamerMain.scss" lang="scss"></style>

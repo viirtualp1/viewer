@@ -1,32 +1,31 @@
-import { defineStore } from "pinia";
-import { DateType } from "@/types/Date";
+import { defineStore, storeToRefs } from "pinia";
+import { TaskType } from "@/types/Task";
 
-interface TaskType {
-  title: string;
-  description: string;
-  date: DateType;
+interface TasksStoreData {
+  tasks: TaskType[];
+  task: TaskType | null;
 }
 
 export const useTasksStore = defineStore({
   id: "tasks-store",
-  state: () => {
+  state: (): TasksStoreData => {
     return {
-      task: {
-        title: "",
-        description: "",
-        date: {
-          hours: 0,
-          minutes: 0,
-        },
-      },
+      tasks: [],
+      task: null,
     };
   },
   actions: {
-    setTask(task: TaskType) {
+    setTask(task: TaskType | null) {
       this.task = task;
+    },
+    setTasks(tasks: TaskType[]) {
+      this.tasks = tasks;
     },
   },
   getters: {
     getTask: (state) => state.task,
+    getTasks: (state) => state.tasks,
   },
 });
+
+export const useTasksStoreRefs = () => storeToRefs(useTasksStore());

@@ -4,15 +4,15 @@ export const useMainStore = defineStore({
   id: "main",
   state: () => {
     return {
-      backgroundImage: "default.png",
+      backgroundImageIndex: 0,
     };
   },
   actions: {
-    setBackgroundImage(value: string) {
-      this.backgroundImage = value;
+    setBackgroundImageIndex(value: number) {
+      this.backgroundImageIndex = value;
     },
   },
   getters: {
-    getBackgroundImage: (state) => state.backgroundImage,
+    getBackgroundImageIndex: (state) => state.backgroundImageIndex,
   },
 });

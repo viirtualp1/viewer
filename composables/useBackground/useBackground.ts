@@ -26,14 +26,14 @@ export function useBackground() {
   onMounted(() => {
     const backgroundIndexFromLocalStorage =
       Number(localStorage.getItem("backgroundIndex")) || 0;
+    mainStore.setBackgroundImageIndex(backgroundIndexFromLocalStorage);
+
     const backgroundImage = backgrounds[backgroundIndexFromLocalStorage];
 
     appStyles.value = `
       background: url(${backgroundImage});
       background-size: cover;
-      background-repeat: no-repeat;
     `;
-    mainStore.setBackgroundImage(backgroundImage);
   });
 
   return {

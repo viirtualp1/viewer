@@ -18,15 +18,18 @@
 </template>
 
 <script setup lang="ts">
+import { useGameStats } from "@/composables/useGameStats";
+import { useTasks } from "@/composables/useTasks";
+import { useHeroStats } from "@/composables/useHeroStats";
+
 import StreamerMain from "@/components/Streamer/StreamerMain/StreamerMain.vue";
 import StreamerTasks from "@/components/Streamer/StreamerTasks/StreamerTasks.vue";
 import StreamerStats from "@/components/Streamer/StreamerStats/StreamerStats.vue";
 import StreamerActions from "@/components/Streamer/StreamerActions/StreamerActions.vue";
-import { useGameStats } from "@/composables/useGameStats";
-import { useTasks } from "@/composables/useTasks";
 
 onMounted(() => {
   useGameStats();
+  useHeroStats();
   useTasks();
 });
 </script>

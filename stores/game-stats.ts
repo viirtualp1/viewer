@@ -28,12 +28,7 @@ export const useGameStatsStore = defineStore({
   getters: {
     getDay: (state) => state.day,
     getDate: (state) => state.date,
-    getStats: (state) => {
-      return {
-        day: state.day,
-        date: state.date,
-      };
-    },
+    getStats: (state) => state,
   },
 });
 

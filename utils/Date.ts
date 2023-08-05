@@ -1,8 +1,8 @@
 import { DateType } from "~/types/Date";
 
 export function formatDate(date: DateType) {
-  let hours = "00";
-  let minutes = "00";
+  let hours: string | number = date.hours;
+  let minutes: string | number = date.minutes;
 
   if (date.hours < 10) {
     hours = `0${date.hours}`;

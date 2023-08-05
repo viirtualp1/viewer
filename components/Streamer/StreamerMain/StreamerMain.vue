@@ -11,9 +11,13 @@
       {{ formattedDate }}
     </streamer-card-title>
 
-    <streamer-card-text v-if="task">
+    <streamer-card-text class="streamer-main__text" v-if="task">
       {{ task.description }}
     </streamer-card-text>
+
+    <div class="hr" />
+
+    <streamer-button>Выполнить задание</streamer-button>
   </streamer-card>
 </template>
 
@@ -26,6 +30,7 @@ import { formatDate } from "@/utils/Date";
 import StreamerCard from "@/components/Streamer/StreamerCard/StreamerCard.vue";
 import StreamerCardTitle from "@/components/Streamer/StreamerCard/StreamerCardTitle/StreamerCardTitle.vue";
 import StreamerCardText from "@/components/Streamer/StreamerCard/StreamerCardText/StreamerCardText.vue";
+import StreamerButton from "@/components/ui/StreamerButton/StreamerButton.vue";
 
 const { day, date } = useGameStatsStoreRefs();
 const { task } = useTasksStoreRefs();

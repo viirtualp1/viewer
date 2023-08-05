@@ -1,0 +1,39 @@
+@import "assets/variables.scss";
+
+.streamer-button {
+  display: inline-block;
+  color: $color-white;
+  padding: 0.375rem 0.75rem;
+  border: none;
+  background-color: $color-primary;
+  cursor: pointer;
+  line-height: 1.5;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  font-size: 1rem;
+  border-radius: 0.25rem;
+  transition:
+    color 0.15s ease-in-out,
+    background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
+
+  &:hover {
+    background-color: darken($color-primary, 2%);
+  }
+
+  &.outlined {
+    background-color: transparent;
+    color: $color-primary;
+    border: 1px solid $color-primary;
+
+    &:hover {
+      background-color: $color-primary;
+      color: $color-white;
+    }
+  }
+}

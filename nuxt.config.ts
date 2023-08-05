@@ -3,4 +3,12 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   css: ["@/assets/globals.scss"],
   modules: ["@pinia/nuxt"],
+  ssr: true,
+  nitro: {
+    baseURL: "http://localhost:8000",
+    prerender: {
+      crawlLinks: true,
+      failOnError: false,
+    },
+  },
 });

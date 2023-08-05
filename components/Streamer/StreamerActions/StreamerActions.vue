@@ -1,11 +1,12 @@
-<script setup lang="ts">
-import StreamerCard from "@/components/Streamer/StreamerCard/StreamerCard.vue";
-</script>
-
 <template>
   <streamer-card>
-    <button v-for="i in 5" :key="i">{{ i }}</button>
+    <streamer-button v-for="i in 4" :key="i" size="large">
+      Button {{ i }}
+    </streamer-button>
   </streamer-card>
 </template>
 
-<style scoped lang="scss"></style>
+<script setup lang="ts">
+import StreamerCard from "@/components/Streamer/StreamerCard/StreamerCard.vue";
+import StreamerButton from "@/components/ui/StreamerButton/StreamerButton.vue";
+</script>

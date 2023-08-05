@@ -1,4 +1,4 @@
-import { TaskType } from "~/types/Task";
+import { TaskType } from "@/types/Task";
 
 interface DayType {
   tasks: TaskType[];

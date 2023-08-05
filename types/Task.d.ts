@@ -1,4 +1,4 @@
-import { DateType } from "~/types/Date";
+import { DateType } from "@/types/Date";
 
 export interface TaskType {
   title: string;

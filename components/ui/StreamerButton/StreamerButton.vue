@@ -5,17 +5,19 @@
 </template>
 
 <script setup lang="ts">
-type ButtonThemeType = "primary" | "success" | "danger" | "warning";
+type ButtonTheme = "primary" | "success" | "danger" | "warning";
+type Size = "small" | "default" | "large";
 
 interface Props {
-  theme?: ButtonThemeType;
+  theme?: ButtonTheme;
   outlined?: boolean;
+  size?: Size;
 }
 
 const props = defineProps<Props>();
 
 const classes = computed(() => {
-  return [props.theme, { outlined: props.outlined }];
+  return [props.theme, { outlined: props.outlined }, props.size];
 });
 </script>
 

@@ -1,4 +1,4 @@
-import { DateType } from "~/types/Date";
+import { DateType } from "@/types/Date";
 
 export function formatDate(date: DateType) {
   let hours: string | number = date.hours;

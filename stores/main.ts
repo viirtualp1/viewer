@@ -1,18 +1,18 @@
-import { defineStore } from "pinia";
+import { defineStore } from 'pinia'
 
 export const useMainStore = defineStore({
-  id: "main",
+  id: 'main',
   state: () => {
     return {
       backgroundImageIndex: 0,
-    };
+    }
   },
   actions: {
     setBackgroundImageIndex(value: number) {
-      this.backgroundImageIndex = value;
+      this.backgroundImageIndex = value
     },
   },
   getters: {
     getBackgroundImageIndex: (state) => state.backgroundImageIndex,
   },
-});
+})

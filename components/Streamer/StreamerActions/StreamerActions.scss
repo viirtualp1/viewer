@@ -1,0 +1,13 @@
+.streamer-actions {
+  &__group-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 196px;
+    margin-bottom: 24px;
+  }
+
+  &__button {
+    width: 100%;
+  }
+}

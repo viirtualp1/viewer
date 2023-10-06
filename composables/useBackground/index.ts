@@ -1,1 +1,1 @@
-export { useBackground } from "./useBackground";
+export { useBackground } from './useBackground'

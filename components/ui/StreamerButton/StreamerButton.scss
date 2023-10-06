@@ -1,4 +1,4 @@
-@import "assets/variables.scss";
+@import 'assets/variables.scss';
 
 .streamer-button {
   display: inline-block;
@@ -38,6 +38,10 @@
   }
 
   &.large {
-    padding: 0.975rem 1rem;
+    padding: 0.575rem 1rem;
+  }
+
+  &.danger {
+    background-color: $color-danger;
   }
 }

@@ -9,15 +9,15 @@
 </template>
 
 <script setup lang="ts">
-import { formatDate } from "@/utils/Date";
+import { formatDate } from '@/utils/Date'
 
-import { useTasksStoreRefs } from "@/stores/tasks";
+import { useTasksStoreRefs } from '@/stores/tasks'
 
-import StreamerCard from "@/components/Streamer/StreamerCard/StreamerCard.vue";
-import StreamerCardText from "@/components/Streamer/StreamerCard/StreamerCardText/StreamerCardText.vue";
-import StreamerCardTitle from "@/components/Streamer/StreamerCard/StreamerCardTitle/StreamerCardTitle.vue";
+import StreamerCard from '@/components/Streamer/StreamerCard/StreamerCard.vue'
+import StreamerCardText from '@/components/Streamer/StreamerCard/StreamerCardText/StreamerCardText.vue'
+import StreamerCardTitle from '@/components/Streamer/StreamerCard/StreamerCardTitle/StreamerCardTitle.vue'
 
-const { tasks } = useTasksStoreRefs();
+const { tasks } = useTasksStoreRefs()
 </script>
 
 <style scoped lang="scss"></style>

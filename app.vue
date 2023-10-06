@@ -5,9 +5,9 @@
 </template>
 
 <script setup lang="ts">
-import { useBackground } from "@/composables/useBackground";
+import { useBackground } from '@/composables/useBackground'
 
-const { appStyles } = useBackground();
+const { appStyles } = useBackground()
 </script>
 
 <style lang="scss">

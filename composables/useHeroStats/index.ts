@@ -1,1 +1,1 @@
-export { useHeroStats } from "./useHeroStats";
+export { useHeroStats } from './useHeroStats'

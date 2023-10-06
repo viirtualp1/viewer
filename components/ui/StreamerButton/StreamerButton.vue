@@ -5,20 +5,13 @@
 </template>
 
 <script setup lang="ts">
-type ButtonTheme = "primary" | "success" | "danger" | "warning";
-type Size = "small" | "default" | "large";
+import { ButtonProps } from '@/types/Button'
 
-interface Props {
-  theme?: ButtonTheme;
-  outlined?: boolean;
-  size?: Size;
-}
-
-const props = defineProps<Props>();
+const props = defineProps<ButtonProps>()
 
 const classes = computed(() => {
-  return [props.theme, { outlined: props.outlined }, props.size];
-});
+  return [props.theme, { outlined: props.outlined }, props.size]
+})
 </script>
 
 <style lang="scss" src="./StreamerButton.scss"></style>

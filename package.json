@@ -1,5 +1,5 @@
 {
-  "name": "nuxt-app",
+  "name": "viewer",
   "private": true,
   "scripts": {
     "build": "nuxt build",
@@ -10,15 +10,18 @@
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
-    "@types/node": "^18.17.1",
-    "nuxt": "^3.6.5",
-    "sass": "^1.64.2",
+    "@pinia/nuxt": "^0.4.11",
+    "@types/node": "^20.8.2",
+    "@typescript-eslint/eslint-plugin": "^6.7.4",
+    "eslint": "^8.50.0",
+    "eslint-plugin-vue": "^9.17.0",
+    "nuxt": "^3.7.4",
+    "pinia": "^2.1.6",
+    "prettier": "^3.0.3",
+    "sass": "^1.68.0",
     "sass-loader": "^13.3.2"
   },
-  "dependencies": {
-    "@pinia/nuxt": "^0.4.11",
-    "eslint": "^8.46.0",
-    "pinia": "^2.1.6",
-    "prettier": "^3.0.1"
+  "overrides": {
+    "vue": "latest"
   }
 }

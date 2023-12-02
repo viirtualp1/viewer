@@ -1,4 +1,4 @@
-import { defineStore } from 'pinia'
+import { defineStore, storeToRefs } from 'pinia'
 
 export const useMainStore = defineStore({
   id: 'main',
@@ -16,3 +16,5 @@ export const useMainStore = defineStore({
     getBackgroundImageIndex: (state) => state.backgroundImageIndex,
   },
 })
+
+export const useMainStoreRefs = () => storeToRefs(useMainStore())

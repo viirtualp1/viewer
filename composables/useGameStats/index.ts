@@ -1,1 +1,1 @@
-export { useGameStats } from './useGameStats'
+export { useGameStatsSaves } from './useGameStatsSaves'

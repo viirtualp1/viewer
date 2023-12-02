@@ -4,7 +4,7 @@ interface DayType {
   tasks: TaskType[]
 }
 
-export const Days = [
+export const Days: DayType[] = [
   {
     tasks: [
       {
@@ -66,9 +66,70 @@ export const Days = [
       },
     ],
   },
+  {
+    tasks: [
+      {
+        title: 'Позавтракать 2',
+        description: 'Оу, наверное уже пора вставать, пойду сделаю завтрак',
+        date: {
+          hours: 10,
+          minutes: 20,
+        },
+      },
+      {
+        title: 'Серф в инете 2',
+        description: 'Пойду в инете посижу, посмотрю чего-нибудь',
+        date: {
+          hours: 11,
+          minutes: 10,
+        },
+      },
+      {
+        title: 'Обед',
+        description: 'Надо бы перекусить чего-то',
+        date: {
+          hours: 12,
+          minutes: 10,
+        },
+      },
+      {
+        title: 'Уборка и Готовка',
+        description:
+          'Ладно, хватит сидеть уже за компьютером, надо убраться и ужинать уже',
+        date: {
+          hours: 13,
+          minutes: 10,
+        },
+      },
+      {
+        title: 'Ужин и Подготовка',
+        description: 'Так, поужинаю и пойду готовиться к стриму',
+        date: {
+          hours: 15,
+          minutes: 10,
+        },
+      },
+      {
+        title: 'Начать Стрим',
+        description: 'Окей, ладно, запускаю поточный',
+        date: {
+          hours: 19,
+          minutes: 30,
+        },
+      },
+      {
+        title: 'Лечь спать',
+        description: 'Ладно, поскорей пойду спать',
+        date: {
+          hours: 2,
+          minutes: 10,
+        },
+      },
+    ],
+  },
 ]
 
-export const PureGameStats = () => {
+export const pureGameStats = () => {
   return {
     day: 1,
     date: {

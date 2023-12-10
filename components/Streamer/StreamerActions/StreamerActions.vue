@@ -23,8 +23,8 @@
 import { ButtonTheme } from '@/types/Button'
 import { StreamerCard } from '@/components/Streamer'
 import { StreamerButton } from '@/components/ui'
-import { useHeroStatsStoreRefs } from '~/stores/hero-stats'
-import { useGameStatsStoreRefs } from '~/stores/game-stats'
+import { useHeroStatsStoreRefs } from '@/stores/hero-stats'
+import { useGameStatsStoreRefs } from '@/stores/game-stats'
 
 interface ButtonData {
   text: string

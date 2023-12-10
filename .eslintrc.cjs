@@ -32,6 +32,7 @@ module.exports = {
         '@typescript-eslint/ban-ts-comment': ['off'],
         'vue/singleline-html-element-content-newline': ['off'],
         'vue/html-self-closing': ['off'],
+        'vue/multiline-html-element-content-newline': ['off'],
     },
 }
 

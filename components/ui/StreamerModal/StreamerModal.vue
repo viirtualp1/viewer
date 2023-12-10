@@ -1,28 +1,44 @@
 <template>
-  <div class="streamer-modal" :class="{ isOpen: value }">
-    <div class="streamer-modal__overlay" />
+  <Transition name="streamer-modal">
+    <div v-if="modelValue" class="streamer-modal">
+      <div class="streamer-modal__container">
+        <div class="streamer-modal__header">
+          <slot name="header" />
 
-    <div class="streamer-modal__heading">
-      <slot name="title" />
+          <streamer-button icon>
+            <img src="@/assets/images/icons/icon-close.svg" alt="close" />
+          </streamer-button>
+        </div>
 
-      <streamer-button> X </streamer-button>
+        <div class="streamer-modal__body">
+          <slot name="body" />
+        </div>
+
+        <div class="streamer-modal__footer">
+          <slot name="footer" />
+        </div>
+      </div>
     </div>
-
-    <div class="streamer-modal__body">
-      <slot />
-    </div>
-  </div>
+  </Transition>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import { StreamerButton } from '@/components/ui'
 
 defineProps({
-  value: {
+  modelValue: {
     type: Boolean,
     default: false,
   },
 })
+
+const emit = defineEmits({
+  close: () => true,
+})
+
+function close() {
+  emit('close')
+}
 </script>
 
 <style lang="scss" src="./StreamerModal.scss"></style>

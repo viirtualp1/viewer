@@ -3,18 +3,19 @@
     <div v-if="modelValue" class="streamer-modal">
       <div class="streamer-modal__container">
         <div class="streamer-modal__header">
-          <slot name="header">header</slot>
+          <slot name="header" />
+
+          <streamer-button icon>
+            <img src="@/assets/images/icons/icon-close.svg" alt="close" />
+          </streamer-button>
         </div>
 
         <div class="streamer-modal__body">
-          <slot name="body">default body</slot>
+          <slot name="body" />
         </div>
 
         <div class="streamer-modal__footer">
-          <slot name="footer">
-            default footer
-            <button class="modal-default-button" @click="close">OK</button>
-          </slot>
+          <slot name="footer" />
         </div>
       </div>
     </div>
@@ -22,7 +23,9 @@
 </template>
 
 <script setup>
-const props = defineProps({
+import { StreamerButton } from '@/components/ui'
+
+defineProps({
   modelValue: {
     type: Boolean,
     default: false,

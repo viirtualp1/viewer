@@ -6,4 +6,5 @@ export interface ButtonProps {
   theme?: ButtonTheme
   outlined?: boolean
   size?: Size
+  disabled?: boolean
 }

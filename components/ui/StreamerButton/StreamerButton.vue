@@ -10,7 +10,12 @@ import { ButtonProps } from '@/types/Button'
 const props = defineProps<ButtonProps>()
 
 const classes = computed(() => {
-  return [props.theme, { outlined: props.outlined }, props.size]
+  return [
+    props.theme,
+    props.size,
+    { outlined: props.outlined },
+    { disabled: props.disabled },
+  ]
 })
 </script>
 

@@ -23,30 +23,30 @@
 
     <div class="hr" />
 
-    <streamer-button @click="completeTask(task)">
+    <streamer-button size="large" @click="completeTask(task)">
       Выполнить задание
     </streamer-button>
 
     <teleport to="body">
-      <streamer-modal v-model="isOpen" @close="closeModal" />
+      <streamer-modal v-model="isOpen" @close="closeModal">
+        <template #title> Hello there! </template>
+        hello body
+      </streamer-modal>
     </teleport>
   </streamer-card>
 </template>
 
 <script setup lang="ts">
 import { useTasks } from '@/composables/useTasks'
-
 import { useGameStatsStoreRefs } from '@/stores/game-stats'
 import { useTasksStoreRefs } from '@/stores/tasks'
-
 import { formatDate } from '@/utils/Date'
-
-import StreamerCard from '@/components/Streamer/StreamerCard/StreamerCard.vue'
-import StreamerCardTitle from '@/components/Streamer/StreamerCard/StreamerCardTitle/StreamerCardTitle.vue'
-import StreamerCardText from '@/components/Streamer/StreamerCard/StreamerCardText/StreamerCardText.vue'
-import StreamerButton from '@/components/ui/StreamerButton/StreamerButton.vue'
-
-import StreamerModal from '@/components/ui/StreamerModal/StreamerModal.vue'
+import {
+  StreamerCard,
+  StreamerCardTitle,
+  StreamerCardText,
+} from '@/components/Streamer'
+import { StreamerButton, StreamerModal } from '@/components/ui'
 import { useStreamerModal } from '@/composables/useStreamerModal/useStreamerModal'
 
 const { day, date } = useGameStatsStoreRefs()

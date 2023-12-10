@@ -26,6 +26,11 @@
     background-color: darken($color-primary, 2%);
   }
 
+  &.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
   &.outlined {
     background-color: transparent;
     color: $color-primary;

@@ -4,16 +4,12 @@ import { pureHeroStats } from '@/services/Hero'
 import { HeroStats } from '@/types/Hero'
 
 export function useHeroStatsSaves() {
-  function setHeroStatsSaves() {
+  return () => {
     const { setStats } = useHeroStatsStore()
 
     const heroStatsFromLocalStorage: HeroStats =
       tryParseItemFromLocalStorage('HeroStats') || pureHeroStats()
 
     setStats(heroStatsFromLocalStorage)
-  }
-
-  return {
-    setHeroStatsSaves,
   }
 }

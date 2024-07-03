@@ -5,6 +5,7 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue'
 import { ButtonProps } from '@/types/Button'
 
 const props = defineProps<ButtonProps>()

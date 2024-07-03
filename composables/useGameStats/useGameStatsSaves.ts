@@ -4,16 +4,12 @@ import { GameStats } from '@/types/Game'
 import { pureGameStats } from '@/services/Tasks'
 
 export function useGameStatsSaves() {
-  function setGameStatsSaves() {
+  return () => {
     const { setStats } = useGameStatsStore()
 
     const gameStatsFromLocalStorage: GameStats =
       tryParseItemFromLocalStorage('GameStats') || pureGameStats()
 
     setStats(gameStatsFromLocalStorage)
-  }
-
-  return {
-    setGameStatsSaves,
   }
 }

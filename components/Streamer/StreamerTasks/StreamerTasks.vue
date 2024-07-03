@@ -1,23 +1,21 @@
 <template>
-  <streamer-card>
-    <streamer-card-title>Задания</streamer-card-title>
+  <StreamerCard>
+    <StreamerCardTitle>Задания</StreamerCardTitle>
 
-    <streamer-card-text v-for="(task, idx) in tasks" :key="idx">
+    <StreamerCardText v-for="(task, taskIdx) in tasks" :key="taskIdx">
       {{ formatDate(task.date) }} → {{ task.title }}
-    </streamer-card-text>
-  </streamer-card>
+    </StreamerCardText>
+  </StreamerCard>
 </template>
 
 <script setup lang="ts">
 import { formatDate } from '@/utils/Date'
-
 import { useTasksStoreRefs } from '@/stores/tasks'
-
-import StreamerCard from '@/components/Streamer/StreamerCard/StreamerCard.vue'
-import StreamerCardText from '@/components/Streamer/StreamerCard/StreamerCardText/StreamerCardText.vue'
-import StreamerCardTitle from '@/components/Streamer/StreamerCard/StreamerCardTitle/StreamerCardTitle.vue'
+import {
+  StreamerCard,
+  StreamerCardTitle,
+  StreamerCardText,
+} from '@/components/Streamer/StreamerCard'
 
 const { tasks } = useTasksStoreRefs()
 </script>
-
-<style scoped lang="scss"></style>

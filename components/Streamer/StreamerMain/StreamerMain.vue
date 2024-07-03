@@ -1,5 +1,5 @@
 <template>
-  <streamer-card class="streamer-main">
+  <StreamerCard class="streamer-main">
     <button
       type="button"
       class="streamer-main__profile-button"
@@ -12,42 +12,39 @@
       />
     </button>
 
-    <streamer-card-title>День {{ day }}</streamer-card-title>
-    <streamer-card-title>
-      {{ formattedDate }}
-    </streamer-card-title>
+    <StreamerCardTitle>День {{ day }}</StreamerCardTitle>
 
-    <streamer-card-text v-if="task" class="streamer-main__text">
+    <StreamerCardTitle>
+      {{ formattedDate }}
+    </StreamerCardTitle>
+
+    <StreamerCardText v-if="task" class="streamer-main__text">
       {{ task.description }}
-    </streamer-card-text>
+    </StreamerCardText>
 
     <div class="hr" />
 
-    <streamer-button @click="completeTask(task)">
+    <StreamerButton @click="completeTask(task)">
       Выполнить задание
-    </streamer-button>
+    </StreamerButton>
 
-    <teleport to="body">
-      <streamer-modal v-model="isOpen" @close="closeModal" />
-    </teleport>
-  </streamer-card>
+    <StreamerModal v-model="isOpen" @close="closeModal" />
+  </StreamerCard>
 </template>
 
 <script setup lang="ts">
-import { useTasks } from '@/composables/useTasks'
-
+import { computed } from 'vue'
 import { useGameStatsStoreRefs } from '@/stores/game-stats'
 import { useTasksStoreRefs } from '@/stores/tasks'
-
 import { formatDate } from '@/utils/Date'
-
-import StreamerCard from '@/components/Streamer/StreamerCard/StreamerCard.vue'
-import StreamerCardTitle from '@/components/Streamer/StreamerCard/StreamerCardTitle/StreamerCardTitle.vue'
-import StreamerCardText from '@/components/Streamer/StreamerCard/StreamerCardText/StreamerCardText.vue'
-import StreamerButton from '@/components/ui/StreamerButton/StreamerButton.vue'
-
-import StreamerModal from '@/components/ui/StreamerModal/StreamerModal.vue'
-import { useStreamerModal } from '@/composables/useStreamerModal/useStreamerModal'
+import { useTasks } from '@/composables/useTasks'
+import { useStreamerModal } from '@/composables/useStreamerModal'
+import {
+  StreamerCard,
+  StreamerCardTitle,
+  StreamerCardText,
+} from '@/components/Streamer/StreamerCard'
+import { StreamerButton, StreamerModal } from '@/components/ui'
 
 const { day, date } = useGameStatsStoreRefs()
 const { task } = useTasksStoreRefs()

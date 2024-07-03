@@ -1,27 +1,30 @@
 <template>
   <div class="index-page">
     <div class="index-page__row">
-      <streamer-main />
-      <streamer-tasks />
-      <streamer-stats />
-      <streamer-actions />
+      <StreamerMain />
+      <StreamerTasks />
+      <StreamerStats />
+      <StreamerActions />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import { onMounted } from 'vue'
+import { useHead } from 'nuxt/app'
+
 import { useGameStatsSaves } from '@/composables/useGameStats'
 import { useTasksSaves } from '@/composables/useTasks'
 import { useHeroStatsSaves } from '@/composables/useHeroStats'
 
-import StreamerMain from '@/components/Streamer/StreamerMain/StreamerMain.vue'
-import StreamerTasks from '@/components/Streamer/StreamerTasks/StreamerTasks.vue'
-import StreamerStats from '@/components/Streamer/StreamerStats/StreamerStats.vue'
-import StreamerActions from '@/components/Streamer/StreamerActions/StreamerActions.vue'
+import { StreamerMain } from '@/components/Streamer/StreamerMain'
+import { StreamerTasks } from '@/components/Streamer/StreamerTasks'
+import { StreamerStats } from '@/components/Streamer/StreamerStats'
+import { StreamerActions } from '@/components/Streamer/StreamerActions'
 
-const { setTaskFromLocalStorage } = useTasksSaves()
-const { setGameStatsSaves } = useGameStatsSaves()
-const { setHeroStatsSaves } = useHeroStatsSaves()
+const setTaskFromLocalStorage = useTasksSaves()
+const setGameStatsSaves = useGameStatsSaves()
+const setHeroStatsSaves = useHeroStatsSaves()
 
 onMounted(() => {
   setHeroStatsSaves()

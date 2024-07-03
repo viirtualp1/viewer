@@ -7,7 +7,7 @@ export function useTasksSaves() {
   const { setTask, setTasks } = useTasksStore()
   const { day, date } = useGameStatsStoreRefs()
 
-  function setTaskFromLocalStorage() {
+  return () => {
     const tasks = Days[day.value - 1].tasks
     const task =
       tasks.find((task: TaskType) => {
@@ -19,9 +19,5 @@ export function useTasksSaves() {
 
     setTask(task)
     setTasks(tasks)
-  }
-
-  return {
-    setTaskFromLocalStorage,
   }
 }

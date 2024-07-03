@@ -1,4 +1,4 @@
 export interface DateType {
-  hours: number;
-  minutes: number;
+  hours: number
+  minutes: number
 }

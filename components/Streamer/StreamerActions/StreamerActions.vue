@@ -1,28 +1,30 @@
 <template>
-  <streamer-card class="streamer-actions">
+  <StreamerCard class="streamer-actions">
     <div
       v-for="(groupButtons, groupButtonsIdx) in buttons"
       :key="groupButtonsIdx"
       class="streamer-actions__group-buttons"
     >
-      <streamer-button
-        v-for="(button, idx) in groupButtons"
-        :key="idx"
+      <StreamerButton
+        v-for="(button, buttonIdx) in groupButtons"
+        :key="buttonIdx"
         class="streamer-actions__button"
         size="large"
         :theme="button.theme"
       >
         {{ button.text }}
-      </streamer-button>
+      </StreamerButton>
     </div>
-  </streamer-card>
+  </StreamerCard>
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue'
+
 import { ButtonTheme } from '@/types/Button'
 
-import StreamerCard from '@/components/Streamer/StreamerCard/StreamerCard.vue'
-import StreamerButton from '@/components/ui/StreamerButton/StreamerButton.vue'
+import { StreamerCard } from '@/components/Streamer/StreamerCard'
+import { StreamerButton } from '@/components/ui/StreamerButton'
 
 interface ButtonData {
   text: string

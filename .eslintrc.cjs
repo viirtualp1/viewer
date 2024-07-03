@@ -26,11 +26,25 @@ module.exports = {
         caughtErrorsIgnorePattern: '^_',
       },
     ],
-    'vue/no-v-html': ['off'],
-    'vue/multi-word-component-names': ['off'],
-    '@typescript-eslint/ban-ts-comment': ['off'],
-    'vue/html-self-closing': ['off'],
-    'vue/max-attributes-per-line': ['off'],
-    'vue/singleline-html-element-content-newline': ['off'],
-  },
+    plugins: ['@typescript-eslint'],
+    rules: {
+        quotes: ['error', 'single', { avoidEscape: true }],
+        'no-unused-vars': 'off',
+        '@typescript-eslint/no-unused-vars': [
+            'error',
+            {
+                argsIgnorePattern: '^_',
+                varsIgnorePattern: '^_',
+                caughtErrorsIgnorePattern: '^_',
+            },
+        ],
+        'vue/no-v-html': ['off'],
+        'vue/multi-word-component-names': ['off'],
+        'vue/max-attributes-per-line': ['off'],
+        '@typescript-eslint/ban-ts-comment': ['off'],
+        'vue/singleline-html-element-content-newline': ['off'],
+        'vue/html-self-closing': ['off'],
+        'vue/multiline-html-element-content-newline': ['off'],
+    },
+  }
 }

@@ -24,7 +24,7 @@
 
     <div class="hr" />
 
-    <StreamerButton @click="completeTask(task)">
+    <StreamerButton size="large" @click="completeTask(task)">
       Выполнить задание
     </StreamerButton>
 

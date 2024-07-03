@@ -11,6 +11,7 @@
         class="streamer-actions__button"
         size="large"
         :theme="button.theme"
+        :disabled="button.isDisabled"
       >
         {{ button.text }}
       </StreamerButton>
@@ -20,32 +21,79 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
-
 import { ButtonTheme } from '@/types/Button'
-
-import { StreamerCard } from '@/components/Streamer/StreamerCard'
-import { StreamerButton } from '@/components/ui/StreamerButton'
+import { useHeroStatsStoreRefs } from '@/stores/hero-stats'
+import { useGameStatsStoreRefs } from '@/stores/game-stats'
+import { StreamerCard } from '@/components/Streamer'
+import { StreamerButton } from '@/components/ui'
 
 interface ButtonData {
   text: string
   theme: ButtonTheme
+  isDisabled: boolean
 }
+
+const { hp, energy, food, water } = useHeroStatsStoreRefs()
+const { date } = useGameStatsStoreRefs()
+
+const isEnoughHeroStats = computed(() => {
+  return (
+    hp.value > 50 && energy.value > 50 && food.value > 50 && water.value > 50
+  )
+})
+
+const isStreamingTime = computed(() => {
+  const { hours } = date.value
+
+  return hours >= 20 && hours <= 2
+})
 
 const buttons = computed<ButtonData[][]>(() => [
   [
-    { text: 'Компьютер', theme: 'primary' },
-    { text: 'Магазин "Twitch"', theme: 'primary' },
+    {
+      text: 'Компьютер',
+      theme: 'primary',
+      isDisabled: false,
+    },
+    {
+      text: 'Магазин "Twitch"',
+      theme: 'primary',
+      isDisabled: false,
+    },
   ],
-
   [
-    { text: 'Рулетка Лины', theme: 'primary' },
-    { text: 'Угадай героя', theme: 'primary' },
-    { text: 'Custom Hero Simulator', theme: 'primary' },
+    {
+      text: 'Рулетка Лины',
+      theme: 'primary',
+      isDisabled: !isEnoughHeroStats.value,
+    },
+    {
+      text: 'Угадай героя',
+      theme: 'primary',
+      isDisabled: !isEnoughHeroStats.value,
+    },
+    {
+      text: 'Custom Hero Simulator',
+      theme: 'primary',
+      isDisabled: !isEnoughHeroStats.value,
+    },
+    {
+      text: 'Трансляция',
+      theme: 'primary',
+      isDisabled: !isStreamingTime.value,
+    },
   ],
-
   [
-    { text: 'Настройки', theme: 'primary' },
-    { text: 'Вернуться в главное меню', theme: 'danger' },
+    {
+      text: 'Настройки',
+      theme: 'primary',
+      isDisabled: false,
+    },
+    {
+      text: 'Вернуться в главное меню',
+      theme: 'danger',
+      isDisabled: false,
+    },
   ],
 ])
 </script>

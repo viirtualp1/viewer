@@ -11,7 +11,6 @@
 
 <script setup lang="ts">
 import { useHeroStatsStoreRefs } from '@/stores/hero-stats'
-
 import {
   StreamerCard,
   StreamerCardTitle,

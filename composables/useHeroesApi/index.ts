@@ -1,0 +1,1 @@
+export { useHeroesApi } from './useHeroesApi'

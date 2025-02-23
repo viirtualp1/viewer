@@ -1,12 +1,12 @@
 <template>
-  <StreamerCard>
-    <StreamerCardTitle>Состояние</StreamerCardTitle>
+  <streamer-card>
+    <streamer-card-title>Состояние</streamer-card-title>
 
-    <StreamerCardText>Здоровье - {{ hp }}%</StreamerCardText>
-    <StreamerCardText>Вода - {{ water }}%</StreamerCardText>
-    <StreamerCardText>Еда - {{ food }}%</StreamerCardText>
-    <StreamerCardText>Энергия - {{ energy }}%</StreamerCardText>
-  </StreamerCard>
+    <streamer-card-text>Здоровье - {{ hp }}%</streamer-card-text>
+    <streamer-card-text>Вода - {{ water }}%</streamer-card-text>
+    <streamer-card-text>Еда - {{ food }}%</streamer-card-text>
+    <streamer-card-text>Энергия - {{ energy }}%</streamer-card-text>
+  </streamer-card>
 </template>
 
 <script setup lang="ts">

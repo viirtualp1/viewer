@@ -1,58 +1,62 @@
 <template>
-  <StreamerCard class="streamer-main">
+  <streamer-card class="streamer-main">
     <button
       type="button"
       class="streamer-main__profile-button"
-      @click="openModal"
+      @click="openStreamerModal"
     >
       <img
         src="@/assets/images/icon-streamer.jpg"
-        alt="icon streamer"
         class="streamer-main__icon"
+        alt="icon streamer"
       />
     </button>
 
-    <StreamerCardTitle>День {{ day }}</StreamerCardTitle>
+    <streamer-card-title>День {{ day }}</streamer-card-title>
 
-    <StreamerCardTitle>
+    <streamer-card-title>
       {{ formattedDate }}
-    </StreamerCardTitle>
+    </streamer-card-title>
 
-    <StreamerCardText v-if="task" class="streamer-main__text">
+    <streamer-card-text v-if="task" class="streamer-main__text">
       {{ task.description }}
-    </StreamerCardText>
+    </streamer-card-text>
 
     <div class="hr" />
 
-    <StreamerButton size="large" @click="completeTask(task)">
+    <streamer-button size="large" @click="completeTask(task)">
       Выполнить задание
-    </StreamerButton>
+    </streamer-button>
 
-    <StreamerModal v-model="isOpen" @close="closeModal" />
-  </StreamerCard>
+    <streamer-info-modal ref="streamerInfoModalRef" />
+  </streamer-card>
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { ref, computed } from 'vue'
 import { useGameStatsStoreRefs } from '@/stores/game-stats'
 import { useTasksStoreRefs } from '@/stores/tasks'
-import { formatDate } from '@/utils/Date'
+import { formatDate } from '@/utils/date'
 import { useTasks } from '@/composables/useTasks'
-import { useStreamerModal } from '@/composables/useStreamerModal'
 import {
   StreamerCard,
   StreamerCardTitle,
   StreamerCardText,
 } from '@/components/Streamer/StreamerCard'
-import { StreamerButton, StreamerModal } from '@/components/ui'
+import { StreamerInfoModal } from '@/components/Streamer'
+import { StreamerButton } from '@/components/ui'
 
 const { day, date } = useGameStatsStoreRefs()
 const { task } = useTasksStoreRefs()
 const { completeTask } = useTasks()
 
-const { isOpen, openModal, closeModal } = useStreamerModal()
+const streamerInfoModalRef = ref<InstanceType<typeof StreamerInfoModal>>()
 
 const formattedDate = computed(() => formatDate(date.value))
+
+function openStreamerModal() {
+  streamerInfoModalRef.value?.open()
+}
 </script>
 
 <style src="./StreamerMain.scss" lang="scss"></style>

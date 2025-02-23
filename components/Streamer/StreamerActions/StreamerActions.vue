@@ -1,22 +1,23 @@
 <template>
-  <StreamerCard class="streamer-actions">
+  <streamer-card class="streamer-actions">
     <div
       v-for="(groupButtons, groupButtonsIdx) in buttons"
       :key="groupButtonsIdx"
       class="streamer-actions__group-buttons"
     >
-      <StreamerButton
+      <streamer-button
         v-for="(button, buttonIdx) in groupButtons"
         :key="buttonIdx"
         class="streamer-actions__button"
         size="large"
         :theme="button.theme"
         :disabled="button.isDisabled"
+        @click="button.onClick"
       >
         {{ button.text }}
-      </StreamerButton>
+      </streamer-button>
     </div>
-  </StreamerCard>
+  </streamer-card>
 </template>
 
 <script setup lang="ts">
@@ -31,7 +32,12 @@ interface ButtonData {
   text: string
   theme: ButtonTheme
   isDisabled: boolean
+  onClick?: () => void
 }
+
+const emit = defineEmits<{
+  (e: 'open:roulette-modal'): void
+}>()
 
 const { hp, energy, food, water } = useHeroStatsStoreRefs()
 const { date } = useGameStatsStoreRefs()
@@ -66,6 +72,7 @@ const buttons = computed<ButtonData[][]>(() => [
       text: 'Рулетка Лины',
       theme: 'primary',
       isDisabled: !isEnoughHeroStats.value,
+      onClick: () => emit('open:roulette-modal'),
     },
     {
       text: 'Угадай героя',

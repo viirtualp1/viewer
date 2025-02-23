@@ -18,6 +18,10 @@ module.exports = {
   rules: {
     quotes: ['error', 'single', { avoidEscape: true }],
     'no-unused-vars': 'off',
+    'vue/multi-word-component-names': 'off',
+    'vue/html-self-closing': 'off',
+    'vue/singleline-html-element-content-newline': 'off',
+    'vue/max-attributes-per-line': 'off',
     '@typescript-eslint/no-unused-vars': [
       'error',
       {
@@ -26,25 +30,5 @@ module.exports = {
         caughtErrorsIgnorePattern: '^_',
       },
     ],
-    plugins: ['@typescript-eslint'],
-    rules: {
-        quotes: ['error', 'single', { avoidEscape: true }],
-        'no-unused-vars': 'off',
-        '@typescript-eslint/no-unused-vars': [
-            'error',
-            {
-                argsIgnorePattern: '^_',
-                varsIgnorePattern: '^_',
-                caughtErrorsIgnorePattern: '^_',
-            },
-        ],
-        'vue/no-v-html': ['off'],
-        'vue/multi-word-component-names': ['off'],
-        'vue/max-attributes-per-line': ['off'],
-        '@typescript-eslint/ban-ts-comment': ['off'],
-        'vue/singleline-html-element-content-newline': ['off'],
-        'vue/html-self-closing': ['off'],
-        'vue/multiline-html-element-content-newline': ['off'],
-    },
   }
 }

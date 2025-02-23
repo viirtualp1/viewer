@@ -13,6 +13,7 @@
     "@pinia/nuxt": "^0.4.11",
     "@types/node": "^20.8.2",
     "@typescript-eslint/eslint-plugin": "^6.7.4",
+    "axios": "^1.7.9",
     "eslint": "^8.50.0",
     "eslint-plugin-vue": "^9.17.0",
     "nuxt": "^3.7.4",
@@ -25,6 +26,7 @@
     "vue": "latest"
   },
   "dependencies": {
+    "@formkit/auto-animate": "^0.8.2",
     "@vueuse/core": "^10.11.0",
     "random-js": "^2.1.0"
   }
